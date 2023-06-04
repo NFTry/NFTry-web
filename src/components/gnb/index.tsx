@@ -35,7 +35,7 @@ export const Gnb = () => {
 };
 
 const Wrapper = tw.div`
-  flex w-full h-104 items-center justify-between px-24
+  flex w-full h-104 items-center justify-between px-24 flex-shrink-0 fixed top-0 left-0 z-10 bg-white
 `;
 
 const LogoWrapper = tw.div`
