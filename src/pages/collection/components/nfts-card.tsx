@@ -159,5 +159,5 @@ const FeeValue = tw.div`
 `;
 
 const SecondartContentWrapper = tw.div`
-  flex flex-col justify-center flex-shrink-0 w-200
+  flex-center flex-shrink-0 w-200
 `;
