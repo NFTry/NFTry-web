@@ -33,7 +33,7 @@ export const NFTListingStep1 = () => {
   } = useList({
     contractAddress: CONTRACT_ADDRESS.NFTRY,
     nftAddress: PIXMOS_ADDRESS,
-    tokenId: Number(1),
+    tokenId: Number(selectedNft?.tokenId),
     deposit: deposit ?? -1,
     fixedFee: fixedFee ?? -1,
     usageFee: usageFee ?? -1,
