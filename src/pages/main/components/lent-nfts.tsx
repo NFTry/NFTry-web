@@ -29,9 +29,9 @@ export const LentNFTs = () => {
               name,
               tokenId,
               properties,
-              depositFeeFloor,
-              fixedFeeFloor,
-              usageFeeFloor,
+              depositFee,
+              fixedFee,
+              usageFee,
               isSample,
               borrowedBy,
               totalEarned,
@@ -44,9 +44,9 @@ export const LentNFTs = () => {
                 name={name}
                 tokenId={tokenId}
                 properties={properties}
-                depositFeeFloor={depositFeeFloor}
-                fixedFeeFloor={fixedFeeFloor}
-                usageFeeFloor={usageFeeFloor}
+                depositFee={depositFee}
+                fixedFee={fixedFee}
+                usageFee={usageFee}
                 isSample={isSample}
                 borrowedBy={borrowedBy}
                 totalEarned={totalEarned}

@@ -3,13 +3,17 @@ import tw, { styled } from 'twin.macro';
 
 import { Footer } from '~/components/footer';
 import { Gnb } from '~/components/gnb';
+import { useConnectWallet } from '~/hooks/data/use-connect-wallet';
 
 import { Architecture } from './components/architecture';
+import { BorrowedNFTs } from './components/borrowed-nfts';
 import { Introduction } from './components/introduction';
 import { LentNFTs } from './components/lent-nfts';
 import { TryNow } from './components/try-now';
 
 const MainPage = () => {
+  const { isConnected } = useConnectWallet();
+
   return (
     <Wrapper>
       <Gnb />
@@ -18,7 +22,12 @@ const MainPage = () => {
         <Architecture />
         <TryNow />
 
-        <LentNFTs />
+        {isConnected && (
+          <>
+            <LentNFTs />
+            <BorrowedNFTs />
+          </>
+        )}
       </ContentWrapper>
       <Footer />
     </Wrapper>

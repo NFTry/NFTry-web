@@ -3,7 +3,6 @@ import { HTMLAttributes } from 'react';
 import tw, { css, styled } from 'twin.macro';
 
 import { ClaimEarningButton } from '~/components/buttons/claim-earning';
-import { StopRetrieveNextRentalButton } from '~/components/buttons/stop-retrieve-next-rental';
 import { IconBullet } from '~/components/icons';
 import { parseNumberWithComma } from '~/utils/number';
 import { shortenAddress } from '~/utils/string';
@@ -23,13 +22,13 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   usageFee: number;
 
   isSample: boolean;
-  borrowedBy: string;
+  borrowedFrom: string;
 
-  totalEarned: number;
-  claimable: number;
+  usageTime: number;
+  remainingDeposit: number;
 }
 
-export const LentNFTsCard = ({
+export const BorrowedNFTsCard = ({
   image,
   collectionName,
   name,
@@ -40,9 +39,9 @@ export const LentNFTsCard = ({
   usageFee,
 
   isSample,
-  borrowedBy,
-  totalEarned,
-  claimable,
+  borrowedFrom,
+  usageTime,
+  remainingDeposit,
 
   ...rest
 }: Props) => {
@@ -95,29 +94,28 @@ export const LentNFTsCard = ({
       <SecondartContentWrapper>
         <BorrowInfoWrapper>
           <BorrowedByWrapper>
-            <BorrowedByLabel>{'Borrowed By '}</BorrowedByLabel>
-            <BorrowedByValue isBorrowed={!!borrowedBy}>
-              {borrowedBy ? shortenAddress(borrowedBy) : 'None'}
+            <BorrowedByLabel>{'Borrowed From '}</BorrowedByLabel>
+            <BorrowedByValue isBorrowed={!!borrowedFrom}>
+              {borrowedFrom ? shortenAddress(borrowedFrom) : 'None'}
             </BorrowedByValue>
           </BorrowedByWrapper>
 
           <BorrowedInfo>
             <BorrowedInfoInner>
-              <BorrowedInfoLabel>Total Earned</BorrowedInfoLabel>
-              <BorrowedInfoEarned>{`${parseNumberWithComma(totalEarned)} USDC`}</BorrowedInfoEarned>
+              <BorrowedInfoLabel>Usage time</BorrowedInfoLabel>
+              <BorrowedInfoEarned>{`${parseNumberWithComma(usageTime)} hours`}</BorrowedInfoEarned>
             </BorrowedInfoInner>
             <BorrowedInfoInner>
-              <BorrowedInfoLabel>Claimable</BorrowedInfoLabel>
+              <BorrowedInfoLabel>{'Remaining\ndeposit'}</BorrowedInfoLabel>
               <BorrowedInfoClaimable>{`${parseNumberWithComma(
-                claimable
+                remainingDeposit
               )} USDC`}</BorrowedInfoClaimable>
             </BorrowedInfoInner>
           </BorrowedInfo>
         </BorrowInfoWrapper>
 
         <ButtonWrapper>
-          <ClaimEarningButton text="Claim Earning" disabled={claimable <= 0} />
-          <StopRetrieveNextRentalButton text={borrowedBy ? 'Stop next rental' : 'Retrieve now'} />
+          <ClaimEarningButton text="Return now" />
         </ButtonWrapper>
       </SecondartContentWrapper>
     </Wrapper>
@@ -231,7 +229,7 @@ const BorrowedInfoInner = tw.div`
   flex gap-8
 `;
 const BorrowedInfoLabel = tw.div`
-  text-14 leading-20 font-medium text-black/70 flex-shrink-0
+  text-14 leading-20 font-medium text-black/70 flex-shrink-0 whitespace-pre-wrap
 `;
 
 const BorrowedInfoEarned = tw.div`

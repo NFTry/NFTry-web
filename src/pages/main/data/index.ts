@@ -5,6 +5,7 @@ import LogoBayc from '~/assets/images/logo-bayc.png';
 import LogoEns from '~/assets/images/logo-ens.png';
 import LogoPixmos from '~/assets/images/logo-pixmos.png';
 import NFTBayc from '~/assets/images/nft-bayc.png';
+import NFTEns from '~/assets/images/nft-ens.png';
 import NFTPixmosLegendary from '~/assets/images/nft-pixmos-legendary.png';
 
 export const tryNowData = [
@@ -71,9 +72,9 @@ export const lentNFTData = [
 
     properties: ['MINING SPEED +2 PIXSOL/hr', 'ATTACK POWER +15%', 'DEFENSE POSER -5%'],
 
-    depositFeeFloor: 1000,
-    fixedFeeFloor: 20,
-    usageFeeFloor: 1,
+    depositFee: 1000,
+    fixedFee: 20,
+    usageFee: 1,
 
     borrowedBy: '0x48DBa2D1b6C89Bf8234C2B63554369aDC7Ae3258',
 
@@ -98,14 +99,39 @@ export const lentNFTData = [
       'MOUTH : Bored Pipe',
     ],
 
-    depositFeeFloor: 1000,
-    fixedFeeFloor: 20,
-    usageFeeFloor: 1,
+    depositFee: 1000,
+    fixedFee: 20,
+    usageFee: 1,
 
     borrowedBy: '',
 
     totalEarned: 0,
     claimable: 0,
+
+    isSample: true,
+  },
+];
+
+export const borrowedNFTData = [
+  {
+    image: NFTEns,
+    collectionName: 'ENS: Ethereum Name Service',
+    name: 'polygon.eth',
+    tokenId: '1',
+
+    properties: [
+      'Expiration Date: Monday, September 12, 2044',
+      'Registration Date: Saturday, September 12, 2020',
+    ],
+
+    depositFee: 1000,
+    fixedFee: 20,
+    usageFee: 1,
+
+    borrowedFrom: '0x48DBa2D1b6C89Bf8234C2B63554369aDC7Ae3258',
+
+    usageTime: 12,
+    remainingDeposit: 1029,
 
     isSample: true,
   },
