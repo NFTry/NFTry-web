@@ -6,6 +6,7 @@ import LogoEns from '~/assets/images/logo-ens.png';
 import LogoPixmos from '~/assets/images/logo-pixmos.png';
 import NFTBayc from '~/assets/images/nft-bayc.png';
 import NFTEns from '~/assets/images/nft-ens.png';
+import NFTPixmosEpic from '~/assets/images/nft-pixmos-epic.png';
 import NFTPixmosLegendary from '~/assets/images/nft-pixmos-legendary.png';
 
 export const tryNowData = [
@@ -13,7 +14,7 @@ export const tryNowData = [
     background: BgPixmos,
     logo: LogoPixmos,
     name: 'PIXMOS Commander NFT',
-    contractAddress: '0x0',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
     description:
       'PIXMOS is a turn-based strategy game aiming for the conquest of the earth. Commander NFT is a main utility NFT in PIXMOS',
     utilities: [
@@ -71,18 +72,18 @@ export const lentNFTData = [
     image: NFTPixmosLegendary,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Legendary',
-    contractAddress: '0x0',
-    tokenId: '1',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '3',
 
     properties: ['MINING SPEED +2 PIXSOL/hr', 'ATTACK POWER +15%', 'DEFENSE POSER -5%'],
 
     depositFee: 1000,
-    fixedFee: 20,
+    fixedFee: 50,
     usageFee: 1,
 
-    borrowedBy: '0x48DBa2D1b6C89Bf8234C2B63554369aDC7Ae3258',
+    borrowedBy: '',
 
-    totalEarned: 12300,
+    totalEarned: 0,
     claimable: 50,
 
     isSample: false,
@@ -108,7 +109,7 @@ export const lentNFTData = [
     fixedFee: 20,
     usageFee: 1,
 
-    borrowedBy: '',
+    borrowedBy: '0x48DBa2D1b6C89Bf8234C2B63554369aDC7Ae3258',
 
     totalEarned: 0,
     claimable: 0,
@@ -118,6 +119,26 @@ export const lentNFTData = [
 ];
 
 export const borrowedNFTData = [
+  {
+    image: NFTPixmosEpic,
+    collectionName: 'PIXMOS Commander NFT',
+    name: 'Epic',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '4',
+
+    properties: ['DEFENSE POWER + 10%', 'MINING SPEED -0.3 PIXSOL/hr'],
+
+    depositFee: 500,
+    fixedFee: 50,
+    usageFee: 10,
+
+    borrowedFrom: '0x48DBa2D1b6C89Bf8234C2B63554369aDC7Ae3258',
+
+    usageTime: 0,
+    remainingDeposit: 450,
+
+    isSample: false,
+  },
   {
     image: NFTEns,
     collectionName: 'ENS: Ethereum Name Service',
@@ -137,7 +158,7 @@ export const borrowedNFTData = [
     borrowedFrom: '0x48DBa2D1b6C89Bf8234C2B63554369aDC7Ae3258',
 
     usageTime: 12,
-    remainingDeposit: 1029,
+    remainingDeposit: 968,
 
     isSample: true,
   },

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import tw, { styled } from 'twin.macro';
 
@@ -16,6 +16,7 @@ import { borrowableNFTData, collectionData } from './data';
 
 const CollectionPage = () => {
   const { id } = useParams();
+  const [filter, setFilter] = useState(['0']);
   const navigator = useNavigate();
   const collection = collectionData.find(({ contractAddress }) => contractAddress === id);
 
@@ -26,6 +27,7 @@ const CollectionPage = () => {
     nftAddress: PIXMOS_ADDRESS,
   });
 
+  console.log(data);
   useEffect(() => {
     if (!collection) navigator('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,32 +40,35 @@ const CollectionPage = () => {
       <ContentWrapper>
         <BannerContent />
         <CardWrapper>
-          {borrowableNFTData.map(
-            ({
-              image,
-              collectionName,
-              name,
-              tokenId,
-              properties,
-              depositFee,
-              fixedFee,
-              usageFee,
-              isSample,
-            }) => (
-              <NFTsCard
-                key={`${name}-${tokenId}}`}
-                image={image}
-                collectionName={collectionName}
-                name={name}
-                tokenId={tokenId}
-                properties={properties}
-                depositFee={depositFee}
-                fixedFee={fixedFee}
-                usageFee={usageFee}
-                isSample={isSample}
-              />
-            )
-          )}
+          {borrowableNFTData
+            .filter(d => !filter.includes(d.tokenId))
+            .map(
+              ({
+                image,
+                collectionName,
+                name,
+                tokenId,
+                properties,
+                depositFee,
+                fixedFee,
+                usageFee,
+                isSample,
+              }) => (
+                <NFTsCard
+                  key={`${name}-${tokenId}`}
+                  image={image}
+                  collectionName={collectionName}
+                  name={name}
+                  tokenId={tokenId}
+                  properties={properties}
+                  depositFee={depositFee}
+                  fixedFee={fixedFee}
+                  usageFee={usageFee}
+                  isSample={isSample}
+                  handleSuccess={setFilter}
+                />
+              )
+            )}
         </CardWrapper>
       </ContentWrapper>
       <Footer />

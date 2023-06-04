@@ -7,8 +7,8 @@ export const nftData = [
     image: NFTPixmosLegendary,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Legendary',
-    contractAddress: '0x0',
-    tokenId: '1',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '3',
 
     properties: ['MINING SPEED +2 PIXSOL/hr', 'ATTACK POWER +15%', 'DEFENSE POSER -5%'],
   },
@@ -17,8 +17,8 @@ export const nftData = [
     image: NFTPixmosEpic,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Epic',
-    contractAddress: '0x0',
-    tokenId: '33',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '7',
 
     properties: ['DEFENSE POWER + 10%', 'MINING SPEED -0.3 PIXSOL/hr'],
   },
@@ -27,8 +27,8 @@ export const nftData = [
     image: NFTPixmosRare,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Rare',
-    contractAddress: '0x0',
-    tokenId: '50',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '11',
 
     properties: ['ATTACK POWER +2%', 'DEFENSE POWER -1%'],
   },
