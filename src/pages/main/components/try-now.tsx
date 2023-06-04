@@ -21,12 +21,12 @@ export const TryNow = () => {
             depositFeeFloor,
             fixedFeeFloor,
             usageFeeFloor,
-            key,
+            contractAddress,
             disabled,
           }) => (
             <TryCard
               key={name}
-              onClick={() => navigate(`/${key}`)}
+              onClick={() => navigate(`/${contractAddress}`)}
               background={background}
               logo={logo}
               name={name}

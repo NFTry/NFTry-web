@@ -15,7 +15,7 @@ import { borrowableNFTData, collectionData } from './data';
 const CollectionPage = () => {
   const { id } = useParams();
   const navigator = useNavigate();
-  const collection = collectionData[id as string];
+  const collection = collectionData.find(({ contractAddress }) => contractAddress === id);
 
   useRequirePrarams([id], () => navigator('/'));
 

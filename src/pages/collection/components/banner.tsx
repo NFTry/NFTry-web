@@ -7,16 +7,14 @@ import { collectionData } from '../data';
 export const Banner = () => {
   const { id } = useParams();
 
-  const collection = collectionData[id as string];
-
-  const { background, logo } = collection;
+  const collection = collectionData.find(({ contractAddress }) => contractAddress === id);
 
   return (
     <Wrapper>
-      <Background style={{ backgroundImage: `url(${background})` }} />
+      <Background style={{ backgroundImage: `url(${collection?.background})` }} />
       <InnerWrapper>
         <LogoWrapper>
-          <Logo style={{ backgroundImage: `url(${logo})` }} />
+          <Logo style={{ backgroundImage: `url(${collection?.logo})` }} />
         </LogoWrapper>
       </InnerWrapper>
     </Wrapper>

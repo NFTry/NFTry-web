@@ -12,8 +12,8 @@ export const tryNowData = [
   {
     background: BgPixmos,
     logo: LogoPixmos,
-    key: 'pixmos-commander-nft',
     name: 'PIXMOS Commander NFT',
+    contractAddress: '0x0',
     description:
       'PIXMOS is a turn-based strategy game aiming for the conquest of the earth. Commander NFT is a main utility NFT in PIXMOS',
     utilities: [
@@ -31,8 +31,8 @@ export const tryNowData = [
   {
     background: BgEns,
     logo: LogoEns,
-    key: 'ens',
     name: 'ENS: Ethereum Name Service',
+    contractAddress: '0x1',
     description:
       'Own your username, store an avatar and other profile data, and use it across services.',
     utilities: [
@@ -49,8 +49,8 @@ export const tryNowData = [
   {
     background: BgBayc,
     logo: LogoBayc,
-    key: 'bayc',
     name: 'Bored Ape Yacht Club',
+    contractAddress: '0x2',
     description:
       'A collection of 10,000 Bored Ape NFTs—unique digital collectibles living on the Ethereum blockchain.',
     utilities: [
@@ -71,6 +71,7 @@ export const lentNFTData = [
     image: NFTPixmosLegendary,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Legendary',
+    contractAddress: '0x0',
     tokenId: '1',
 
     properties: ['MINING SPEED +2 PIXSOL/hr', 'ATTACK POWER +15%', 'DEFENSE POSER -5%'],
@@ -91,6 +92,7 @@ export const lentNFTData = [
     image: NFTBayc,
     collectionName: 'Bored Ape Yacht Club',
     name: 'BAYC',
+    contractAddress: '0x2',
     tokenId: '5033',
 
     properties: [
@@ -120,6 +122,7 @@ export const borrowedNFTData = [
     image: NFTEns,
     collectionName: 'ENS: Ethereum Name Service',
     name: 'polygon.eth',
+    contractAddress: '0x1',
     tokenId: '1',
 
     properties: [

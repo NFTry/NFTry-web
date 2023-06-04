@@ -8,16 +8,14 @@ import { collectionData } from '../data';
 export const BannerContent = () => {
   const { id } = useParams();
 
-  const collection = collectionData[id as string];
-
-  const { name, description, utilities } = collection;
+  const collection = collectionData.find(({ contractAddress }) => contractAddress === id);
 
   return (
     <Wrapper>
-      <Title>{name}</Title>
-      <Description>{description}</Description>
+      <Title>{collection?.name}</Title>
+      <Description>{collection?.description}</Description>
       <UtilitiesWrapper>
-        {utilities.map(utility => (
+        {collection?.utilities?.map(utility => (
           <UtilityWrapper key={utility}>
             <Bullet>
               <IconBullet width={24} height={24} />

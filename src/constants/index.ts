@@ -35,7 +35,7 @@ export const CONTRACT_ADDRESS: Record<Contract, `0x${string}`> = {
 };
 
 export const POPUP_ID = {
-  SAMPLE: 'SAMPLE',
+  NFT_LISTING_SUCCESS: 'NFT_LISTING_SUCCESS',
 };
 
 export const WALLETCONNECT_PROJECT_ID = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID;

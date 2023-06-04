@@ -65,7 +65,7 @@ module.exports = {
       height: theme => ({ ...defaultTheme.height, ...theme('spacing') }),
 
       minWidth: theme => ({ ...defaultTheme.minWidth }),
-      maxWidth: theme => ({ ...defaultTheme.maxWidth, 1440: '1440px' }),
+      maxWidth: theme => ({ ...defaultTheme.maxWidth, 1280: '1280px', 1440: '1440px' }),
 
       minHeight: theme => ({ ...defaultTheme.minHeight, 60: '60px' }),
       maxHeight: theme => ({ ...defaultTheme.maxHeight }),

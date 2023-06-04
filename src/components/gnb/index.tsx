@@ -1,4 +1,5 @@
 import { ConnectKitButton } from 'connectkit';
+import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 
 import { useConnectWallet } from '~/hooks/data/use-connect-wallet';
@@ -10,10 +11,11 @@ import { Logo } from '../logo';
 
 export const Gnb = () => {
   const { disconnect } = useConnectWallet();
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
-      <LogoWrapper>
+      <LogoWrapper onClick={() => navigate('/')}>
         <Logo width={109} height={24} />
       </LogoWrapper>
       <ButtonWrapper>
@@ -22,7 +24,7 @@ export const Gnb = () => {
             isConnected ? (
               <ButtonWrapper>
                 <DisconnectWalletButton text="Disconnect" onClick={() => disconnect()} />
-                <LendMyNFTButton text="Lend My NFT" />
+                <LendMyNFTButton text="Lend My NFT" onClick={() => navigate('/listing')} />
               </ButtonWrapper>
             ) : (
               <ConnectWalletButton text="Connect Wallet" onClick={() => show()} />
@@ -39,7 +41,7 @@ const Wrapper = tw.div`
 `;
 
 const LogoWrapper = tw.div`
-  w-109 h-24 flex-center flex-shrink-0
+  w-109 h-24 flex-center flex-shrink-0 clickable
 `;
 
 const ButtonWrapper = tw.div`
