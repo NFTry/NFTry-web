@@ -1,6 +1,6 @@
 import tw from 'twin.macro';
 
-import { cardData } from '../data';
+import { tryNowData } from '../data';
 import { TryCard } from './try-card';
 
 export const TryNow = () => {
@@ -8,7 +8,7 @@ export const TryNow = () => {
     <Wrapper>
       <Title>Try Now!</Title>
       <CardWrapper>
-        {cardData.map(
+        {tryNowData.map(
           ({
             background,
             logo,
@@ -18,6 +18,7 @@ export const TryNow = () => {
             depositFeeFloor,
             fixedFeeFloor,
             usageFeeFloor,
+            disabled,
           }) => (
             <TryCard
               key={name}
@@ -29,6 +30,7 @@ export const TryNow = () => {
               depositFeeFloor={depositFeeFloor}
               fixedFeeFloor={fixedFeeFloor}
               usageFeeFloor={usageFeeFloor}
+              disabled={disabled}
             />
           )
         )}

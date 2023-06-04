@@ -1,9 +1,11 @@
 import tw from 'twin.macro';
 
+import architecture from '~/assets/images/architecture.png';
+
 export const Architecture = () => {
   return (
     <Wrapper>
-      <ArchitectureImage />
+      <ArchitectureImage style={{ backgroundImage: `url(${architecture})` }} />
     </Wrapper>
   );
 };

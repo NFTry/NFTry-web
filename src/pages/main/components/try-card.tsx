@@ -16,6 +16,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   fixedFeeFloor: number;
   usageFeeFloor: number;
 
+  disabled?: boolean;
+
   handleBorrowClick?: () => void;
 }
 
@@ -28,6 +30,7 @@ export const TryCard = ({
   depositFeeFloor,
   fixedFeeFloor,
   usageFeeFloor,
+  disabled,
   handleBorrowClick,
   ...rest
 }: Props) => {
@@ -81,7 +84,7 @@ export const TryCard = ({
             </FeeValueWrapper>
           </FeeWrapper>
         </FeesWrapper>
-        <BorrowButton text="Borrow" onClick={handleBorrowClick} />
+        <BorrowButton text="Borrow" onClick={handleBorrowClick} disabled={disabled} />
       </ContentWrapper>
     </Wrapper>
   );

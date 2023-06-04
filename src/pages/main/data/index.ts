@@ -4,8 +4,10 @@ import BgPixmos from '~/assets/images/bg-pixmos.png';
 import LogoBayc from '~/assets/images/logo-bayc.png';
 import LogoEns from '~/assets/images/logo-ens.png';
 import LogoPixmos from '~/assets/images/logo-pixmos.png';
+import NFTBayc from '~/assets/images/nft-bayc.png';
+import NFTPixmosLegendary from '~/assets/images/nft-pixmos-legendary.png';
 
-export const cardData = [
+export const tryNowData = [
   {
     background: BgPixmos,
     logo: LogoPixmos,
@@ -20,6 +22,8 @@ export const cardData = [
     depositFeeFloor: 1000,
     fixedFeeFloor: 20,
     usageFeeFloor: 1,
+
+    disabled: false,
   },
 
   {
@@ -35,6 +39,8 @@ export const cardData = [
     depositFeeFloor: 1000,
     fixedFeeFloor: 20,
     usageFeeFloor: 1,
+
+    disabled: true,
   },
 
   {
@@ -51,5 +57,56 @@ export const cardData = [
     depositFeeFloor: 1000,
     fixedFeeFloor: 20,
     usageFeeFloor: 1,
+
+    disabled: true,
+  },
+];
+
+export const lentNFTData = [
+  {
+    image: NFTPixmosLegendary,
+    collectionName: 'PIXMOS Commander NFT',
+    name: 'Legendary',
+    tokenId: '1',
+
+    properties: ['MINING SPEED +2 PIXSOL/hr', 'ATTACK POWER +15%', 'DEFENSE POSER -5%'],
+
+    depositFeeFloor: 1000,
+    fixedFeeFloor: 20,
+    usageFeeFloor: 1,
+
+    borrowedBy: '0x48DBa2D1b6C89Bf8234C2B63554369aDC7Ae3258',
+
+    totalEarned: 12300,
+    claimable: 50,
+
+    isSample: false,
+  },
+
+  {
+    image: NFTBayc,
+    collectionName: 'Bored Ape Yacht Club',
+    name: 'BAYC',
+    tokenId: '5033',
+
+    properties: [
+      'BACKGROUND : Blue',
+      'CLOTHES : Bandolier',
+      'EYES : Sleepy',
+      'FUR : Dark Brown',
+      'HAT : Beanie',
+      'MOUTH : Bored Pipe',
+    ],
+
+    depositFeeFloor: 1000,
+    fixedFeeFloor: 20,
+    usageFeeFloor: 1,
+
+    borrowedBy: '',
+
+    totalEarned: 0,
+    claimable: 0,
+
+    isSample: true,
   },
 ];

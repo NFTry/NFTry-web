@@ -6,6 +6,7 @@ import { Gnb } from '~/components/gnb';
 
 import { Architecture } from './components/architecture';
 import { Introduction } from './components/introduction';
+import { LentNFTs } from './components/lent-nfts';
 import { TryNow } from './components/try-now';
 
 const MainPage = () => {
@@ -16,6 +17,8 @@ const MainPage = () => {
         <Introduction />
         <Architecture />
         <TryNow />
+
+        <LentNFTs />
       </ContentWrapper>
       <Footer />
     </Wrapper>
