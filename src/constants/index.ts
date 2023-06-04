@@ -36,3 +36,9 @@ export const CONTRACT_ADDRESS: Record<Contract, `0x${string}`> = {
 export const POPUP_ID = {
   SAMPLE: 'SAMPLE',
 };
+
+export const WALLETCONNECT_PROJECT_ID = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID;
+export const LUNIVERSE_NODE_ID = import.meta.env.VITE_LUNIVERSE_NODE_ID;
+export const LUNIVERSE_API_KEY_ID = import.meta.env.VITE_LUNIVERSE_API_KEY_ID;
+export const LUNIVERSE_API_KEY_SECRET = import.meta.env.VITE_LUNIVERSE_API_KEY_SECRET;
+export const LUNIVERSE_WSS_ENDPOINT = import.meta.env.VITE_LUNIVERSE_WSS_ENDPOINT;

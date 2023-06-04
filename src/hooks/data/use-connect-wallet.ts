@@ -1,16 +1,11 @@
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 
-import { chains } from '~/configs/setup-wallet';
 import { DEFAULT_CHAIN_ID } from '~/constants';
 
 export const useConnectWallet = (chainId: number = DEFAULT_CHAIN_ID) => {
   const { address, isConnected } = useAccount();
 
-  const { connect, error, isLoading } = useConnect({
-    chainId,
-    connector: new MetaMaskConnector({ chains }),
-  });
+  const { connect, error, isLoading } = useConnect({ chainId });
 
   const { disconnect } = useDisconnect();
 
