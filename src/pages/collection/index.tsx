@@ -5,6 +5,8 @@ import tw, { styled } from 'twin.macro';
 
 import { Footer } from '~/components/footer';
 import { Gnb } from '~/components/gnb';
+import { CONTRACT_ADDRESS, PIXMOS_ADDRESS } from '~/constants';
+import { useGetAllBorrowableNFT } from '~/hooks/contract/get-all-borrowable-nft';
 import { useRequirePrarams } from '~/hooks/pages/use-require-params';
 
 import { Banner } from './components/banner';
@@ -18,6 +20,11 @@ const CollectionPage = () => {
   const collection = collectionData.find(({ contractAddress }) => contractAddress === id);
 
   useRequirePrarams([id], () => navigator('/'));
+
+  const { data } = useGetAllBorrowableNFT({
+    contractAddress: CONTRACT_ADDRESS.NFTRY,
+    nftAddress: PIXMOS_ADDRESS,
+  });
 
   useEffect(() => {
     if (!collection) navigator('/');

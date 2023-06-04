@@ -16,7 +16,7 @@ export const useGetAllBorrowableNFT = ({ contractAddress, nftAddress }: Param) =
     [contractAddress, nftAddress]
   );
 
-  const { refetch, isFetching } = useContractRead({
+  const { data, refetch, isFetching } = useContractRead({
     address: contractAddress,
     abi: NFTRY_ABI,
     functionName,
@@ -24,5 +24,5 @@ export const useGetAllBorrowableNFT = ({ contractAddress, nftAddress }: Param) =
     enabled,
   });
 
-  return { refetch, isFetching };
+  return { data, refetch, isFetching };
 };
