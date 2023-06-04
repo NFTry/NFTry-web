@@ -7,6 +7,15 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   server: {
     port: 3000,
+    proxy: {
+      '/api': {
+        target: 'https://web3.luniverse.io/v1/',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''),
+        secure: true,
+        ws: true,
+      },
+    },
   },
 
   resolve: {

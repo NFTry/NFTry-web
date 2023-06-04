@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
+import { useEffect } from 'react';
 import tw, { styled } from 'twin.macro';
 
+import { getNftMetadataByTokenId } from '~/api/luniverse/nft-metadata';
 import { Footer } from '~/components/footer';
 import { Gnb } from '~/components/gnb';
 import { useConnectWallet } from '~/hooks/data/use-connect-wallet';
@@ -13,6 +15,15 @@ import { TryNow } from './components/try-now';
 
 const MainPage = () => {
   const { isConnected } = useConnectWallet();
+
+  useEffect(() => {
+    const fetch = async () => {
+      const res = await getNftMetadataByTokenId('0xfa95881a5e79f54651bc721c6d314435a675482d', '1');
+      console.log(res);
+    };
+
+    fetch();
+  }, []);
 
   return (
     <Wrapper>
