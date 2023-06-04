@@ -40,7 +40,7 @@ const Wrapper = tw.div`
 
 const ContentWrapper = styled.div(() => [
   tw`
-    flex flex-col w-full pb-160 pt-264 gap-160 px-80
+    flex flex-col w-full pb-160 pt-264 gap-160 px-80 max-w-1440 mx-auto
   `,
   css`
     min-height: calc(100vh - 128px);
