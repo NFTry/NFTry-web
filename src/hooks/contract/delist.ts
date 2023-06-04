@@ -10,10 +10,7 @@ interface Param {
 }
 export const useDelist = ({ contractAddress, nftAddress, tokenId }: Param) => {
   const functionName = 'delist';
-  const args = useMemo(
-    () => [contractAddress, nftAddress, tokenId],
-    [contractAddress, nftAddress, tokenId]
-  );
+  const args = useMemo(() => [nftAddress, tokenId], [nftAddress, tokenId]);
 
   const enabled = useMemo(
     () => nftAddress !== undefined && contractAddress !== undefined,

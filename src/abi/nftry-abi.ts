@@ -1,16 +1,5 @@
 export const NFTRY_ABI = [
   {
-    inputs: [
-      {
-        internalType: 'address',
-        name: '_paymentToken',
-        type: 'address',
-      },
-    ],
-    stateMutability: 'nonpayable',
-    type: 'constructor',
-  },
-  {
     anonymous: false,
     inputs: [
       {
@@ -101,7 +90,32 @@ export const NFTRY_ABI = [
         type: 'address',
       },
       {
+        indexed: true,
+        internalType: 'uint256',
+        name: 'tokenId',
+        type: 'uint256',
+      },
+      {
         indexed: false,
+        internalType: 'address',
+        name: 'owner',
+        type: 'address',
+      },
+    ],
+    name: 'NftLiquidated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'nftAddress',
+        type: 'address',
+      },
+      {
+        indexed: true,
         internalType: 'uint256',
         name: 'tokenId',
         type: 'uint256',
@@ -139,25 +153,6 @@ export const NFTRY_ABI = [
       },
     ],
     name: 'NftReturned',
-    type: 'event',
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'address',
-        name: 'previousOwner',
-        type: 'address',
-      },
-      {
-        indexed: true,
-        internalType: 'address',
-        name: 'newOwner',
-        type: 'address',
-      },
-    ],
-    name: 'OwnershipTransferred',
     type: 'event',
   },
   {
@@ -318,25 +313,7 @@ export const NFTRY_ABI = [
         type: 'uint256',
       },
     ],
-    name: 'claimFixedFee',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'address',
-        name: 'nftAddress',
-        type: 'address',
-      },
-      {
-        internalType: 'uint256',
-        name: 'tokenId',
-        type: 'uint256',
-      },
-    ],
-    name: 'claimUsageFee',
+    name: 'claim',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
@@ -383,7 +360,7 @@ export const NFTRY_ABI = [
           },
           {
             internalType: 'uint256',
-            name: 'depositFee',
+            name: 'deposit',
             type: 'uint256',
           },
           {
@@ -397,7 +374,7 @@ export const NFTRY_ABI = [
             type: 'uint256',
           },
         ],
-        internalType: 'struct Nftry.BorrowableNFT[]',
+        internalType: 'struct NFTRY.BorrowableNFT[]',
         name: '',
         type: 'tuple[]',
       },
@@ -429,7 +406,7 @@ export const NFTRY_ABI = [
           },
           {
             internalType: 'uint256',
-            name: 'depositFee',
+            name: 'deposit',
             type: 'uint256',
           },
           {
@@ -453,7 +430,7 @@ export const NFTRY_ABI = [
             type: 'uint256',
           },
         ],
-        internalType: 'struct Nftry.BorrowedNFT[]',
+        internalType: 'struct NFTRY.BorrowedNFT[]',
         name: '',
         type: 'tuple[]',
       },
@@ -485,7 +462,7 @@ export const NFTRY_ABI = [
           },
           {
             internalType: 'uint256',
-            name: 'depositFee',
+            name: 'deposit',
             type: 'uint256',
           },
           {
@@ -509,7 +486,7 @@ export const NFTRY_ABI = [
             type: 'uint256',
           },
         ],
-        internalType: 'struct Nftry.LentNFT[]',
+        internalType: 'struct NFTRY.LentNFT[]',
         name: '',
         type: 'tuple[]',
       },
@@ -555,7 +532,7 @@ export const NFTRY_ABI = [
       },
       {
         internalType: 'uint256',
-        name: 'depositFee',
+        name: 'deposit',
         type: 'uint256',
       },
       {
@@ -570,39 +547,6 @@ export const NFTRY_ABI = [
       },
     ],
     name: 'list',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'owner',
-    outputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'paymentToken',
-    outputs: [
-      {
-        internalType: 'address',
-        name: '',
-        type: 'address',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'renounceOwnership',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
@@ -629,24 +573,16 @@ export const NFTRY_ABI = [
     inputs: [
       {
         internalType: 'address',
-        name: '_paymentToken',
+        name: 'nftAddress',
         type: 'address',
       },
-    ],
-    name: 'setPaymentToken',
-    outputs: [],
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    inputs: [
       {
-        internalType: 'address',
-        name: 'newOwner',
-        type: 'address',
+        internalType: 'uint256',
+        name: 'tokenId',
+        type: 'uint256',
       },
     ],
-    name: 'transferOwnership',
+    name: 'stopOrResumeLending',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',

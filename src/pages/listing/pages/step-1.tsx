@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import tw from 'twin.macro';
 
 import { ListingNowButton } from '~/components/buttons/listing-now';
 import { IconBullet } from '~/components/icons';
+import { CONTRACT_ADDRESS, PIXMOS_ADDRESS } from '~/constants';
+import { useList } from '~/hooks/contract/list';
 import { LISTING_STEP } from '~/types';
 
 import { Input } from '../components/input';
@@ -23,11 +25,27 @@ export const NFTListingStep1 = () => {
       contractAddress === selected?.contractAddress && tokenId === selected?.tokenId
   );
 
+  const {
+    data: txData,
+    writeAsync,
+    isSuccess: _isTxSuccess,
+    isLoading: _isTxLoading,
+  } = useList({
+    contractAddress: CONTRACT_ADDRESS.NFTRY,
+    nftAddress: PIXMOS_ADDRESS,
+    tokenId: Number(1),
+    deposit: deposit ?? -1,
+    fixedFee: fixedFee ?? -1,
+    usageFee: usageFee ?? -1,
+  });
+  const _txHash = useMemo(() => txData?.hash, [txData?.hash]);
+
   const canListing = deposit && fixedFee && usageFee;
   const handleListing = () => {
     if (!deposit || !fixedFee || !usageFee) return;
 
     console.log(deposit, fixedFee, usageFee);
+    writeAsync?.();
     // TODO: connect api
   };
 
