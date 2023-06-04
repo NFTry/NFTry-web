@@ -7,6 +7,7 @@ import { StopRetrieveNextRentalButton } from '~/components/buttons/stop-retrieve
 import { IconBullet } from '~/components/icons';
 import { CONTRACT_ADDRESS, PIXMOS_ADDRESS } from '~/constants';
 import { useClaim } from '~/hooks/contract/claim';
+import { useDelist } from '~/hooks/contract/delist';
 import { parseNumberWithComma } from '~/utils/number';
 import { shortenAddress } from '~/utils/string';
 
@@ -59,6 +60,13 @@ export const LentNFTsCard = ({
     tokenId: Number(tokenId),
   });
   const _txHash = useMemo(() => txData?.hash, [txData?.hash]);
+
+  const { data: txData2, writeAsync: delistAsync } = useDelist({
+    contractAddress: CONTRACT_ADDRESS.NFTRY,
+    nftAddress: PIXMOS_ADDRESS,
+    tokenId: Number(tokenId),
+  });
+  const _txHash2 = useMemo(() => txData2?.hash, [txData2?.hash]);
 
   return (
     <Wrapper {...rest}>
@@ -135,7 +143,10 @@ export const LentNFTsCard = ({
             disabled={claimable <= 0}
             onClick={() => writeAsync?.()}
           />
-          <StopRetrieveNextRentalButton text={borrowedBy ? 'Stop next rental' : 'Retrieve now'} />
+          <StopRetrieveNextRentalButton
+            onClick={() => delistAsync?.()}
+            text={borrowedBy ? 'Stop next rental' : 'Retrieve now'}
+          />
         </ButtonWrapper>
       </SecondartContentWrapper>
     </Wrapper>
