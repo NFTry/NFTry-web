@@ -1,9 +1,11 @@
 import { chunk } from 'lodash-es';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useMemo } from 'react';
 import tw, { css, styled } from 'twin.macro';
 
 import { ClaimEarningButton } from '~/components/buttons/claim-earning';
 import { IconBullet } from '~/components/icons';
+import { CONTRACT_ADDRESS, PIXMOS_ADDRESS } from '~/constants';
+import { useReturnNft } from '~/hooks/contract/returnNft';
 import { parseNumberWithComma } from '~/utils/number';
 import { shortenAddress } from '~/utils/string';
 
@@ -45,6 +47,18 @@ export const BorrowedNFTsCard = ({
 
   ...rest
 }: Props) => {
+  const {
+    data: txData,
+    writeAsync,
+    isSuccess: _isTxSuccess,
+    isLoading: _isTxLoading,
+  } = useReturnNft({
+    contractAddress: CONTRACT_ADDRESS.NFTRY,
+    nftAddress: PIXMOS_ADDRESS,
+    tokenId: Number(tokenId),
+  });
+  const txHash = useMemo(() => txData?.hash, [txData?.hash]);
+
   return (
     <Wrapper {...rest}>
       <ImageWrapper style={{ backgroundImage: `url(${image})` }}>
@@ -115,7 +129,7 @@ export const BorrowedNFTsCard = ({
         </BorrowInfoWrapper>
 
         <ButtonWrapper>
-          <ClaimEarningButton text="Return now" />
+          <ClaimEarningButton onClick={() => writeAsync?.()} text="Return now" />
         </ButtonWrapper>
       </SecondartContentWrapper>
     </Wrapper>
