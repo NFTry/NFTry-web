@@ -8,7 +8,7 @@ export const collectionData = [
   {
     background: BgPixmos,
     logo: LogoPixmos,
-    contractAddress: '0x0',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
     name: 'PIXMOS Commander NFT',
     description:
       'PIXMOS is a turn-based strategy game aiming for the conquest of the earth.\nCommander NFT is a main utility NFT in PIXMOS',
@@ -30,10 +30,10 @@ export const borrowableNFTData = [
     image: NFTPixmosLegendary,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Legendary',
-    contractAddress: '0x0',
-    tokenId: '1',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '9',
 
-    properties: ['MINING SPEED +2 PIXSOL/hr', 'ATTACK POWER +15%', 'DEFENSE POSER -5%'],
+    properties: ['MAINTENANCE PERIOD +5D', 'ATTACK POWER -10%'],
 
     depositFee: 1000,
     fixedFee: 20,
@@ -46,8 +46,8 @@ export const borrowableNFTData = [
     image: NFTPixmosEpic,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Epic',
-    contractAddress: '0x0',
-    tokenId: '33',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '4',
 
     properties: ['DEFENSE POWER + 10%', 'MINING SPEED -0.3 PIXSOL/hr'],
 
@@ -62,8 +62,8 @@ export const borrowableNFTData = [
     image: NFTPixmosRare,
     collectionName: 'PIXMOS Commander NFT',
     name: 'Rare',
-    contractAddress: '0x0',
-    tokenId: '50',
+    contractAddress: '0xa4e1EE041415eE102DaF131663B552E5779C1b98',
+    tokenId: '5',
 
     properties: ['ATTACK POWER +2%', 'DEFENSE POWER -1%'],
 

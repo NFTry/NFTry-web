@@ -1,5 +1,5 @@
 import { chunk } from 'lodash-es';
-import { HTMLAttributes, useMemo } from 'react';
+import { HTMLAttributes, useEffect, useMemo } from 'react';
 import tw, { css, styled } from 'twin.macro';
 
 import { BorrowNowButton } from '~/components/buttons/borrow-now';
@@ -22,6 +22,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   usageFee: number;
 
   isSample: boolean;
+
+  handleSuccess: any;
 }
 
 export const NFTsCard = ({
@@ -36,6 +38,7 @@ export const NFTsCard = ({
 
   isSample,
 
+  handleSuccess,
   ...rest
 }: Props) => {
   const {
@@ -48,7 +51,13 @@ export const NFTsCard = ({
     nftAddress: PIXMOS_ADDRESS,
     tokenId: Number(tokenId),
   });
-  const _txHash = useMemo(() => txData?.hash, [txData?.hash]);
+  const txHash = useMemo(() => txData?.hash, [txData?.hash]);
+
+  useEffect(() => {
+    if (txHash) {
+      handleSuccess(tokenId);
+    }
+  }, [handleSuccess, tokenId, txHash]);
 
   return (
     <Wrapper {...rest}>

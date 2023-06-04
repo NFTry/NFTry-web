@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 
 import { ListingNowButton } from '~/components/buttons/listing-now';
@@ -38,7 +39,8 @@ export const NFTListingStep1 = () => {
     fixedFee: fixedFee ?? -1,
     usageFee: usageFee ?? -1,
   });
-  const _txHash = useMemo(() => txData?.hash, [txData?.hash]);
+  const txHash = useMemo(() => txData?.hash, [txData?.hash]);
+  const navigate = useNavigate();
 
   const canListing = deposit && fixedFee && usageFee;
   const handleListing = () => {
@@ -53,6 +55,13 @@ export const NFTListingStep1 = () => {
     return () => setStep(LISTING_STEP.STEP_0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (txHash) {
+      navigate('/');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [txHash]);
 
   return (
     <Wrapper>

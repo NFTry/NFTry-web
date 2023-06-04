@@ -29,9 +29,6 @@ export const useBorrow = ({ contractAddress, nftAddress, tokenId }: Param) => {
 
   const { isLoading, isSuccess, isError, error } = useWaitForTransaction({
     hash: data?.hash,
-    onError(error) {
-      console.log('Error', error);
-    },
   });
 
   return {
