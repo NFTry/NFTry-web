@@ -29,9 +29,12 @@ export const CHAIN_ID = {
 };
 export const DEFAULT_CHAIN_ID = CHAIN_ID.MUMBAI;
 
-type Contract = 'SAMPLE';
+type Contract = 'SAMPLE' | 'NFTRY';
 export const CONTRACT_ADDRESS: Record<Contract, `0x${string}`> = {
   SAMPLE: IS_MAINNET ? '0x' : '0x',
+  NFTRY: IS_MAINNET
+    ? '0x26517921df870969529CfBCFB5E24b808A3bA0c0'
+    : '0x26517921df870969529CfBCFB5E24b808A3bA0c0',
 };
 
 export const POPUP_ID = {
@@ -43,3 +46,5 @@ export const LUNIVERSE_NODE_ID = import.meta.env.VITE_LUNIVERSE_NODE_ID;
 export const LUNIVERSE_API_KEY_ID = import.meta.env.VITE_LUNIVERSE_API_KEY_ID;
 export const LUNIVERSE_API_KEY_SECRET = import.meta.env.VITE_LUNIVERSE_API_KEY_SECRET;
 export const LUNIVERSE_WSS_ENDPOINT = import.meta.env.VITE_LUNIVERSE_WSS_ENDPOINT;
+
+export const PIXMOS_ADDRESS = '0xfa95881a5e79f54651bc721c6d314435a675482d';

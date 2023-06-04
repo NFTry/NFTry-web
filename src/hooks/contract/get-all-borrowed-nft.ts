@@ -7,7 +7,7 @@ interface Param {
   contractAddress: `0x${string}`;
   borrower: `0x${string}`;
 }
-export const useGetAllBorrowableNFT = ({ contractAddress, borrower }: Param) => {
+export const useGetAllBorrowedNFT = ({ contractAddress, borrower }: Param) => {
   const functionName = 'getAllBorrowedNFTListByWalletAddress';
   const args = useMemo(() => [borrower], [borrower]);
 
@@ -16,7 +16,7 @@ export const useGetAllBorrowableNFT = ({ contractAddress, borrower }: Param) => 
     [contractAddress, borrower]
   );
 
-  const { refetch, isFetching } = useContractRead({
+  const { data, refetch, isFetching } = useContractRead({
     address: contractAddress,
     abi: NFTRY_ABI,
     functionName,
@@ -24,5 +24,5 @@ export const useGetAllBorrowableNFT = ({ contractAddress, borrower }: Param) => 
     enabled,
   });
 
-  return { refetch, isFetching };
+  return { data, refetch, isFetching };
 };
