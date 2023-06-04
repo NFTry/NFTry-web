@@ -6,6 +6,7 @@ import { Gnb } from '~/components/gnb';
 
 import { Architecture } from './components/architecture';
 import { Introduction } from './components/introduction';
+import { TryNow } from './components/try-now';
 
 const MainPage = () => {
   return (
@@ -14,6 +15,7 @@ const MainPage = () => {
       <ContentWrapper>
         <Introduction />
         <Architecture />
+        <TryNow />
       </ContentWrapper>
       <Footer />
     </Wrapper>

@@ -35,7 +35,7 @@ module.exports = {
         black: '#252525',
         white: '#FFFFFF',
 
-        blue: '#2E5CFF'
+        blue: '#2E5CFF',
       },
 
       fontSize: {
@@ -64,10 +64,10 @@ module.exports = {
       height: theme => ({ ...defaultTheme.height, ...theme('spacing') }),
 
       minWidth: theme => ({ ...defaultTheme.minWidth }),
-      maxWidth: theme => ({ ...defaultTheme.maxWidth, }),
+      maxWidth: theme => ({ ...defaultTheme.maxWidth }),
 
-      minHeight: theme => ({ ...defaultTheme.minHeight }),
-      maxHeight: theme => ({ ...defaultTheme.maxHeight, }),
+      minHeight: theme => ({ ...defaultTheme.minHeight, 60: '60px' }),
+      maxHeight: theme => ({ ...defaultTheme.maxHeight }),
 
       lineHeight: theme => ({
         ...defaultTheme.lineHeight,
@@ -115,7 +115,7 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addBase, addComponents, addUtilities, }) {
+    plugin(function ({ addBase, addComponents, addUtilities }) {
       addBase({});
       addComponents({
         '.flex-center': {
