@@ -1,9 +1,11 @@
 import { chunk } from 'lodash-es';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useMemo } from 'react';
 import tw, { css, styled } from 'twin.macro';
 
 import { BorrowNowButton } from '~/components/buttons/borrow-now';
 import { IconBullet } from '~/components/icons';
+import { CONTRACT_ADDRESS, PIXMOS_ADDRESS } from '~/constants';
+import { useBorrow } from '~/hooks/contract/borrow';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   image: string;
@@ -36,6 +38,18 @@ export const NFTsCard = ({
 
   ...rest
 }: Props) => {
+  const {
+    data: txData,
+    writeAsync,
+    isSuccess: _isTxSuccess,
+    isLoading: _isTxLoading,
+  } = useBorrow({
+    contractAddress: CONTRACT_ADDRESS.NFTRY,
+    nftAddress: PIXMOS_ADDRESS,
+    tokenId: Number(tokenId),
+  });
+  const _txHash = useMemo(() => txData?.hash, [txData?.hash]);
+
   return (
     <Wrapper {...rest}>
       <ImageWrapper style={{ backgroundImage: `url(${image})` }}>
@@ -83,7 +97,7 @@ export const NFTsCard = ({
       </PrimaryContentWrapper>
 
       <SecondartContentWrapper>
-        <BorrowNowButton text="Borrow now" />
+        <BorrowNowButton onClick={() => writeAsync?.()} text="Borrow now" />
       </SecondartContentWrapper>
     </Wrapper>
   );

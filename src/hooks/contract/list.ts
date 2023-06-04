@@ -7,7 +7,7 @@ interface Param {
   contractAddress: `0x${string}`;
   nftAddress: `0x${string}`;
   tokenId: number;
-  depositFee: number;
+  deposit: number;
   fixedFee: number;
   usageFee: number;
 }
@@ -15,19 +15,30 @@ export const useList = ({
   contractAddress,
   nftAddress,
   tokenId,
-  depositFee,
+  deposit,
   fixedFee,
   usageFee,
 }: Param) => {
   const functionName = 'list';
   const args = useMemo(
-    () => [contractAddress, nftAddress, tokenId, depositFee, fixedFee, usageFee],
-    [contractAddress, nftAddress, tokenId, depositFee, fixedFee, usageFee]
+    () => [
+      nftAddress,
+      tokenId,
+      BigInt(deposit * 1e18),
+      BigInt(fixedFee * 1e18),
+      BigInt(usageFee * 1e18),
+    ],
+    [nftAddress, tokenId, deposit, fixedFee, usageFee]
   );
 
   const enabled = useMemo(
-    () => nftAddress !== undefined && contractAddress !== undefined,
-    [nftAddress, contractAddress]
+    () =>
+      nftAddress !== undefined &&
+      contractAddress !== undefined &&
+      deposit >= 0 &&
+      fixedFee >= 0 &&
+      usageFee >= 0,
+    [contractAddress, deposit, fixedFee, nftAddress, usageFee]
   );
 
   const { config } = usePrepareContractWrite({
