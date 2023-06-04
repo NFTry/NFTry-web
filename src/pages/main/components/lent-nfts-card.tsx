@@ -1,10 +1,12 @@
 import { chunk } from 'lodash-es';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useMemo } from 'react';
 import tw, { css, styled } from 'twin.macro';
 
 import { ClaimEarningButton } from '~/components/buttons/claim-earning';
 import { StopRetrieveNextRentalButton } from '~/components/buttons/stop-retrieve-next-rental';
 import { IconBullet } from '~/components/icons';
+import { CONTRACT_ADDRESS, PIXMOS_ADDRESS } from '~/constants';
+import { useClaim } from '~/hooks/contract/claim';
 import { parseNumberWithComma } from '~/utils/number';
 import { shortenAddress } from '~/utils/string';
 
@@ -46,6 +48,18 @@ export const LentNFTsCard = ({
 
   ...rest
 }: Props) => {
+  const {
+    data: txData,
+    writeAsync,
+    isSuccess: _isTxSuccess,
+    isLoading: _isTxLoading,
+  } = useClaim({
+    contractAddress: CONTRACT_ADDRESS.NFTRY,
+    nftAddress: PIXMOS_ADDRESS,
+    tokenId: Number(tokenId),
+  });
+  const _txHash = useMemo(() => txData?.hash, [txData?.hash]);
+
   return (
     <Wrapper {...rest}>
       <ImageWrapper style={{ backgroundImage: `url(${image})` }}>
@@ -116,7 +130,11 @@ export const LentNFTsCard = ({
         </BorrowInfoWrapper>
 
         <ButtonWrapper>
-          <ClaimEarningButton text="Claim Earning" disabled={claimable <= 0} />
+          <ClaimEarningButton
+            text="Claim Earning"
+            disabled={claimable <= 0}
+            onClick={() => writeAsync?.()}
+          />
           <StopRetrieveNextRentalButton text={borrowedBy ? 'Stop next rental' : 'Retrieve now'} />
         </ButtonWrapper>
       </SecondartContentWrapper>
