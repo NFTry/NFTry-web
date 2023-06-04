@@ -12,6 +12,7 @@ export const tryNowData = [
   {
     background: BgPixmos,
     logo: LogoPixmos,
+    key: 'pixmos-commander-nft',
     name: 'PIXMOS Commander NFT',
     description:
       'PIXMOS is a turn-based strategy game aiming for the conquest of the earth. Commander NFT is a main utility NFT in PIXMOS',
@@ -30,6 +31,7 @@ export const tryNowData = [
   {
     background: BgEns,
     logo: LogoEns,
+    key: 'ens',
     name: 'ENS: Ethereum Name Service',
     description:
       'Own your username, store an avatar and other profile data, and use it across services.',
@@ -47,6 +49,7 @@ export const tryNowData = [
   {
     background: BgBayc,
     logo: LogoBayc,
+    key: 'bayc',
     name: 'Bored Ape Yacht Club',
     description:
       'A collection of 10,000 Bored Ape NFTs—unique digital collectibles living on the Ethereum blockchain.',

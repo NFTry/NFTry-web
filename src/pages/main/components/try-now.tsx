@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 
 import { tryNowData } from '../data';
 import { TryCard } from './try-card';
 
 export const TryNow = () => {
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Title>Try Now!</Title>
@@ -18,10 +21,12 @@ export const TryNow = () => {
             depositFeeFloor,
             fixedFeeFloor,
             usageFeeFloor,
+            key,
             disabled,
           }) => (
             <TryCard
               key={name}
+              onClick={() => navigate(`/${key}`)}
               background={background}
               logo={logo}
               name={name}
