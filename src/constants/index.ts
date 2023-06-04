@@ -23,10 +23,11 @@ export const BREAKPOINT = {
 export const AWS_REGION = 'us-east-1';
 
 export const CHAIN_ID = {
+  MUMBAI: 80001,
   ETH: 1,
   GOERLI: 5,
 };
-export const DEFAULT_CHAIN_ID = CHAIN_ID.ETH;
+export const DEFAULT_CHAIN_ID = CHAIN_ID.MUMBAI;
 
 type Contract = 'SAMPLE';
 export const CONTRACT_ADDRESS: Record<Contract, `0x${string}`> = {
